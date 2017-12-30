@@ -43,10 +43,10 @@ And(/^fill birthday$/) do
   @browser.element(:link, "02").click
   #fill mm
   @browser.element(:id, 'dwfrm_profile_customer_birthdayfields_monthSelectBoxItText').click
-  @browser.element(:id, 'dwfrm_profile_customer_birthdayfields_monthSelectBoxItOptions').element(:link, "JANUARY").click
+  @browser.element(:id, 'dwfrm_profile_customer_birthdayfields_monthSelectBoxItOptions').element(:link, "一月").click
   #fill yy
-  @browser.element(:id, 'dwfrm_profile_customer_birthdayfields_yearSelectBoxItText').click
-  @browser.element(:link, "1991").click
+  (@browser.element(:id, 'dwfrm_profile_customer_birthdayfields_yearSelectBoxItText').present?).should == false
+  #@browser.element(:link, "1991").click
 end
 
 And(/^fill Phone number$/) do

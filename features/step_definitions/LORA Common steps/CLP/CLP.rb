@@ -103,8 +103,8 @@ end
 
 And(/^Change “Sort by” to “Price High to Low”$/) do
   @browser.element(:name, 'sort_by_list').wait_until_present.click
-  sleep (2)
-  @browser.element(:text, 'Price (Low to High)').click
+  (@browser.element(:class, 'selectboxit-list').wait_until_present.present?).should == true
+  @browser.element(:data_id, '1').click
 
 end
 

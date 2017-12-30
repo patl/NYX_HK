@@ -16,7 +16,7 @@ And(/^click on Submit button from the email pop\-up$/) do
 end
 
 When(/^user verify the validation message for privacy policy on the pop\-up$/) do
-  Watir::Wait.until {  @browser.element(:class, 'dialog_email_signup_promo').text.include? 'Please accept the Privacy policy' } == true
+  Watir::Wait.until {  @browser.element(:class, 'dialog_email_signup_promo').text.include? '請接受隱私協議.' } == true
 end
 
 Then(/^check the checkbox Privacy policy on subscription email pop\-up$/) do
@@ -50,4 +50,10 @@ end
 
 Then(/^he press on Log In button from FB page$/) do
   @browser.element(:id, 'loginbutton').click
+end
+
+
+Then(/^user press on language drop\-down on email pop\-up and selects (.*)$/) do |language|
+  @browser.element(:class, 'dialog_email_signup_promo').element(:class, 'language-selector-desktop-link').click
+  @browser.element(:class, 'dialog_email_signup_promo').element(:class, 'selectboxit-options').element(:link_text, language.upcase).click
 end

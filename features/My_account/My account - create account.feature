@@ -12,12 +12,12 @@ Feature: Check create account functionality
        And user fills last name with <lastname>
        And user fills mobile number on register page wit <mobile>
        And user fills email
-       And user fills postal code with <postcode>
+       #And user fills postal code with <postcode>
        And user fills password
        And user fills confirm password
        And fill birthday
        And check the checkbox Privacy
-       And check the checkbox SMS
+       #And check the checkbox SMS
        Then press on Create your account button
        Then verify that user is logged in and welcome <firstname> is displayed in header
 

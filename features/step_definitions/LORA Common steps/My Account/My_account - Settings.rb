@@ -1,5 +1,5 @@
 And(/^press on Logout$/) do
-  @browser.element(:class, 'account_navigation_list').element(:link_text, 'Sign Out'.upcase).click
+  @browser.element(:class, 'account_navigation_list').link(:text, "退出").click
   end
 
 

@@ -12,7 +12,7 @@ Feature: Check QV functionality
     Scenario Outline: check the search functionality
       When user press on search icon from heder
       Then user entered searchable word <serchword>
-      When user see search  suggestion list
+      #When user see search  suggestion list
       And press on search button for search
       When user see the search result page
       And Change “Sort by” to “Price High to Low”
@@ -20,7 +20,7 @@ Feature: Check QV functionality
 
       Examples:
       |serchword|
-      |lips     |
+      |唇膏     |
 
 
 

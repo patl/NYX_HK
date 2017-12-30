@@ -3,8 +3,8 @@ Then(/^user press on store locator icon from header$/) do
 end
 
 When(/^user checked the search filed$/) do
-  (@browser.element(:class, 'store-locator-top').present?).should ==true
-  @browser.text_field(:id, 'store_search_query').set('Australia')
+  (@browser.element(:class, 'store_locator_container').present?).should ==true
+  @browser.text_field(:id, 'store_search_query').set('Hong Kong')
   @browser.element(:id, 'store_search_submit').click
   end
 
@@ -40,4 +40,9 @@ end
 Then(/^user entered searchable word (.*)$/) do |serchword|
   @searchtext = serchword
   @browser.text_field(:class, 'search_input').set(serchword)
+end
+
+And(/^site should be switched to (.*) local$/) do |language|
+  current = @browser.element(:class, 'current').text
+  (language.upcase.include? current).should == true
 end
