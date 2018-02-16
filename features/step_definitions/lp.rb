@@ -1,5 +1,5 @@
 When(/^user navigates to lip\-lingerie\-landin page$/) do
-  @browser.goto "http://www.nyxcosmetics.com.au/lip-lingerie-landing.html"
+  @browser.goto "https://www.nyxcosmetics.hk/zh_HK/lip-lingerie-landing.html"
 end
 
 
@@ -59,11 +59,11 @@ When(/^user clicks on navigation arrows$/) do
 end
 
 Then(/^user should see BEAUTY BAR VIDEOS video section$/) do
-  @browser.element(:class, 'yt_container').present?.should == true
+  @browser.element(:class, 'yt_container').present?.should == false
 end
 
 When(/^user navigates to brow\-how\-to page$/) do
-  @browser.goto "http://www.nyxcosmetics.com.au/brow-how-to.html"
+  @browser.goto "https://www.nyxcosmetics.hk/zh_HK/brow-how-to.html"
 end
 
 Then(/^user should see header$/) do
@@ -121,7 +121,7 @@ end
 
 Then(/^user should see view all brows section with text (.*)$/) do |viewall|
   @browser.element(:class, 'container_bg').present?.should == true
-  (@browser.element(:class, 'shopText').text.include? viewall).should == true
+  (@browser.element(:class, 'shopText').text.include? viewall.force_encoding 'utf-8').should == true
 
 end
 

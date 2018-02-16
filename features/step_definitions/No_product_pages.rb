@@ -4,9 +4,17 @@ end
 
 When(/^user checked the search filed$/) do
   (@browser.element(:class, 'store_locator_container').present?).should ==true
-  @browser.text_field(:id, 'store_search_query').set('Hong Kong')
+
+
   @browser.element(:id, 'store_search_submit').click
   end
+
+Then(/^user fill (.*)$/) do |county|
+  @browser.text_field(:id, 'store_search_query').set(county)
+  sleep (1)
+  @browser.send_keys :enter
+end
+
 
 Then(/^user checked the stores list$/) do
   (@browser.element(:class, 'store_list_item').wait_until_present.present?).should ==true
@@ -46,3 +54,5 @@ And(/^site should be switched to (.*) local$/) do |language|
   current = @browser.element(:class, 'current').text
   (language.upcase.include? current).should == true
 end
+
+

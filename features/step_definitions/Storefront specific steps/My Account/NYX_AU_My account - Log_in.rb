@@ -20,7 +20,15 @@ When(/^user verify the validation message for privacy policy on the pop\-up$/) d
 end
 
 Then(/^check the checkbox Privacy policy on subscription email pop\-up$/) do
-  @browser.element(:class, 'dialog_email_signup_promo').element(:class, "formfieleld_accept_terms").click
+  if browser_name == :chrome
+    @browser.element(:xpath, "//form[@id='dwfrm_newsletter']/fieldset/div[3]/label/span").click
+
+  elsif browser_name == :firefox
+    @a = '
+
+            我已閱讀並接受'.force_encoding 'utf-8'
+    @browser.element(:xpath, "//form[@id='dwfrm_newsletter']/fieldset/div[3]/label/span[text() = '"+(@a)+"']").click
+  end
 end
 
 Then(/^check the sms checkbox on email pop\-up$/) do
@@ -55,5 +63,7 @@ end
 
 Then(/^user press on language drop\-down on email pop\-up and selects (.*)$/) do |language|
   @browser.element(:class, 'dialog_email_signup_promo').element(:class, 'language-selector-desktop-link').click
+ sleep (1)
   @browser.element(:class, 'dialog_email_signup_promo').element(:class, 'selectboxit-options').element(:link_text, language.upcase).click
+
 end

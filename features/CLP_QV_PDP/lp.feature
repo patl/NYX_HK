@@ -16,7 +16,7 @@ Scenario: check the lip-lingerie-landing
   When user click on the plus icon he should see qv
   Then close the qv pop-up
   Then user should see NUDES FOR ALL section
-  When user click on navigation arrows
+  #When user click on navigation arrow fs
   Then user should see ARM SWATCHES section
   When user clicks on navigation arrows
   Then user should see BEAUTY BAR VIDEOS video section
@@ -49,7 +49,7 @@ Scenario Outline: check the brow-how-to
 
 Examples:
 |viewall|
-|view   |
+|探索   |
 
 
 

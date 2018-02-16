@@ -16,7 +16,8 @@ Feature: Check Log in functionality via social
 
             Examples:
             |userlogin        |userpassword|firstname|
-            |ogboiko@gmail.com|asdasdasd   |asdasd|
+            |ogboiko@gmaill.com|Ogboiko!123 |Ole      |
+
 
     Scenario: Check reset password
           Then he press on forgot your password link
@@ -36,4 +37,13 @@ Feature: Check Log in functionality via social
 
            Examples:
           |fbemail          |fbpassword |firstname|
-          |ogboiko@gmail.com|ogboiko!123|Oleksii  |
+          |380954172803     |ogboiko!123|Oleksiy  |
+
+      Scenario: check
+        Then he press on Connection button
+        And Verify validation message for login field
+        When he fills login field with <userlogin>
+        When he fills password field with <userpassword>
+        Then he press on Connection button
+        Then verify that user is logged in and welcome <firstname> is displayed in header
+        And press on Logout

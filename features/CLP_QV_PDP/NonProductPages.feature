@@ -1,13 +1,17 @@
-Feature: Check QV functionality
+Feature: No product pages
   Background:
     Given open the site
     Then close the newsletter pop-up
 
-  Scenario: Check the Store locator page
+  Scenario Outline: Check the Store locator page
     Then user press on store locator icon from header
     When user checked the search filed
+    Then user fill <county>
     Then user checked the stores list
     And user checked the map
+Examples:
+    |county|
+    |Hong Kong  |
 
     Scenario Outline: check the search functionality
       When user press on search icon from heder
