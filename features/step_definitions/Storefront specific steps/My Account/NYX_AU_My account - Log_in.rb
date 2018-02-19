@@ -4,11 +4,12 @@ end
 
 And(/^click on sign up now button from footer$/) do
   @browser.scroll.to :bottom
-  @browser.element(:id, 'signupModal').click
+  @browser.element(:id, 'signupModal').wait_until_present.click
 end
 
-When(/^user fill the email address filed on the pop\-up$/) do
-  @browser.text_field(:id, 'dwfrm_newsletter_email').set(@email+'@gmail.com')
+When(/^user fills the email address filed on the pop\-up$/) do
+  #@browser.text_field(:id, 'dwfrm_newsletter_email').wait_until_present.should == true
+  @browser.text_field(:id, 'dwfrm_newsletter_email').wait_until_present.set(@email+'@gmail.com')
 end
 
 And(/^click on Submit button from the email pop\-up$/) do
@@ -20,16 +21,16 @@ When(/^user verify the validation message for privacy policy on the pop\-up$/) d
 end
 
 Then(/^check the checkbox Privacy policy on subscription email pop\-up$/) do
-  if browser_name == :chrome
-    @browser.element(:xpath, "//form[@id='dwfrm_newsletter']/fieldset/div[3]/label/span").click
+ # if browser_name == :chrome
+   @browser.element(:xpath, "//form[@id='dwfrm_newsletter']/fieldset/div[3]/label/span").click
 
-  elsif browser_name == :firefox
-    @a = '
+  #lsif browser_name == :firefox
+    #@a = '
 
-            我已閱讀並接受'.force_encoding 'utf-8'
-    @browser.element(:xpath, "//form[@id='dwfrm_newsletter']/fieldset/div[3]/label/span[text() = '"+(@a)+"']").click
+       #     我已閱讀並接受'.force_encoding 'utf-8'
+   # @browser.element(:xpath, "//form[@id='dwfrm_newsletter']/fieldset/div[3]/label/span[text() = '"+(@a)+"']").click
   end
-end
+#end
 
 Then(/^check the sms checkbox on email pop\-up$/) do
   @browser.element(:class, 'dialog_email_signup_promo').element(:class, "formfield_add_to_email_list").click

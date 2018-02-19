@@ -15,7 +15,7 @@ Feature: Check Log in functionality via social
           And press on Logout
 
             Examples:
-            |userlogin        |userpassword|firstname|
+            |userlogin         |userpassword |firstname|
             |ogboiko@gmaill.com|Ogboiko!123 |Ole      |
 
 

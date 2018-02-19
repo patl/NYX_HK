@@ -5,7 +5,7 @@ Feature: Subscribe to email/sms
   Scenario Outline: Subscribe to email/sms
     Then close the newsletter pop-up
     And click on sign up now button from footer
-    When user fill the email address filed on the pop-up
+    When user fills the email address filed on the pop-up
     And click on Submit button from the email pop-up
     When user verify the validation message for privacy policy on the pop-up
     Then check the checkbox Privacy policy on subscription email pop-up
